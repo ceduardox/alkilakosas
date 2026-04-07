@@ -10,7 +10,8 @@ RUN apt-get update \
 		libicu-dev \
 	&& docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp \
 	&& docker-php-ext-install -j"$(nproc)" gd mysqli zip exif intl opcache \
-	&& a2enmod rewrite headers \
+	&& a2dismod mpm_event mpm_worker || true \
+	&& a2enmod mpm_prefork rewrite headers \
 	&& rm -rf /var/lib/apt/lists/*
 
 COPY docker/apache-wordpress.conf /etc/apache2/conf-available/wordpress.conf
