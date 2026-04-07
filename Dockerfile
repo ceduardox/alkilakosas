@@ -11,6 +11,8 @@ RUN apt-get update \
 	&& docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp \
 	&& docker-php-ext-install -j"$(nproc)" gd mysqli zip exif intl opcache \
 	&& a2dismod mpm_event mpm_worker || true \
+	&& rm -f /etc/apache2/mods-enabled/mpm_event.load /etc/apache2/mods-enabled/mpm_event.conf \
+		/etc/apache2/mods-enabled/mpm_worker.load /etc/apache2/mods-enabled/mpm_worker.conf \
 	&& a2enmod mpm_prefork rewrite headers \
 	&& rm -rf /var/lib/apt/lists/*
 
