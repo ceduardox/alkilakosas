@@ -1,0 +1,16 @@
+.git
+.gitignore
+.vscode
+backups
+u202294444.alquilacosas-com.20260407144405
+u202294444_xGG1l.alquilacosas-com.20260407144405.sql
+*.tar.gz
+*.sql
+*.sql.gz
+wp-content/cache
+wp-content/upgrade
+wp-content/ai1wm-backups
+wp-content/backups
+wp-content/backup-db
+wp-content/backup-*
+wp-content/*/cache
